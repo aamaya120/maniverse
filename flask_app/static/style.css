@@ -1,0 +1,707 @@
+* {
+    margin: 0 auto;
+}
+
+.main_background{
+    background-image: url(images/maniverse.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+
+.create_background, .edit_background{
+    background-image: url(images/image_background2.jpeg);
+    background-size: cover;
+    background-position: absolute;
+}
+
+.show_one_background, .my_home_background {
+    background-image: url(images/image_galaxy.jpeg);
+    background-size: cover;
+    background-position: absolute;
+}
+
+
+/* ----- CONTAINERS ----- */
+container {
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+}
+
+.container_image {
+    width:65%;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboard_cont {
+    padding: 20px;
+    border: 3px solid #5a677d;
+    background-color: #aef3fb;
+    border-radius: 15px;
+    overflow: auto;
+    
+}
+
+.image_container1 {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;    
+}
+
+.image_container {
+    display: flex;
+    flex: 1 0 calc(25% - 10px);
+    margin: 5px; 
+    padding: 20px;
+    box-sizing: border-box; 
+    text-align: center; 
+    background-image: url(images/image_background2.jpg);
+    background-size: cover;
+    background-size: ;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 3px 3px 4px black;
+}
+
+.inside_container {
+    width: 100%;
+    background-color: #cdf7f9;
+}
+
+.games_cont {
+    padding: 20px;
+    border: 3px solid #5a677d;
+    background-color: #cecdf9;
+    border-radius: 15px;
+}
+
+.intro_container {
+    margin-top: 15px;
+    /* display: grid; */
+    /* grid-template-columns: 2fr 1fr;  */
+    gap: 10px; 
+    border: 3px solid #5a677d;
+    background-color: #f8cbc4;
+    opacity: 20;
+    border-radius: 15px;
+}
+
+.edit_intro_container {
+    margin-top: 15px;
+    /* display: grid; */
+    /* grid-template-columns: 2fr 1fr;  */
+    gap: 10px; 
+    border: 3px solid #5a677d;
+    background-color: #d7abf8;
+    opacity: 20;
+    border-radius: 15px;
+}
+
+
+.form_container {
+    margin-top: 15px;
+    /* display: grid; */
+    /* grid-template-columns: 2fr 1fr;  */
+    gap: 10px; 
+    border: 3px solid #5a677d;
+    background-color: #f9f5a5;
+    border-radius: 15px;
+}
+
+.table_cont {
+    margin-top: 10px;
+    padding: 10px;
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+    border: 2px solid #5a677d;
+}
+
+
+
+
+/* ----- HEADERS ----- */
+.header {
+    margin: 10px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header_only_links {
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.recipe_show_one_header {
+    display: flex;
+    flex-direction: column;
+}
+
+.recipe_rowheader, .recipe_rowcontent {
+    border: none;
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid black;
+}
+
+
+
+
+
+
+/* ----- H1 & H2... TITLES----- */
+
+.reg_h2 {
+    text-shadow: 3px 3px 4px black;
+    color: #cdf7f9;
+    align-items: left;
+}
+
+.login_h2 {
+    text-shadow: 3px 3px 4px black;
+    color: #beffcf;
+}
+
+h1 {
+    margin-top: 0;
+    padding: 15px;
+    text-align: center;
+}
+
+.maniverse_title {
+    margin-top: 20px;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    color:#28d7f1;
+    font-size: 50px;
+    text-shadow: 4px 4px 5px black;
+    font-family: fantasy;
+}
+
+.maniverse1 {
+    padding: 0px;
+    margin-top: 20px;
+    margin-bottom: 0px;
+    text-shadow: 3px 3px 4px black;
+    text-align: center;
+    color: #f3b1e8;
+    font-family: fantasy;
+}
+.maniverse2 {
+    padding: 0px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    text-shadow: 3px 3px 4px black;
+    text-align: center;
+    color: #f3b1e8;
+    font-family: fantasy;
+}
+
+.maniverse_home {
+    font-family: fantasy;
+    text-shadow: 4px 4px 5px rgb(255, 255, 255);
+}
+
+.username {
+    padding: 0px;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    font-size: 50px;
+    text-shadow: 3px 3px 4px white;
+    text-align: center;
+    color: black;
+    font-family: fantasy;
+}
+
+.show_h2 {
+    text-shadow: 3px 3px 4px black;
+    color: #cdf7f9;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.user_title {
+    text-shadow: 3px 3px 4px black;
+    color: #cef7f9;
+}
+
+.show_h5{
+    margin: 0;
+    margin-bottom: 25px;
+    text-align: center;
+    font-style: italic;
+}
+
+.logout {
+    text-align: right;
+    padding-right: 15px;
+}
+
+
+
+
+
+
+
+/* ----- BUTTONS ----- */
+#button {
+    padding: 10px 20px;
+    margin-top: 15px;
+    box-shadow: 5px 5px 5px;
+    border-radius: 10px;
+}
+
+.button_logout {
+    background-color: #5a677d;
+    margin: 5px;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px black;
+    border: none;
+    text-decoration: none;
+}
+
+.button_maniverse {
+    margin: 5px;
+    background-image: url(images/maniverse.jpeg);
+    background-size: cover;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px black;
+    border: none;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.button_create_mani{
+    margin: 5px;
+    background-image: url(images/image_galaxy2.jpeg);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px black;
+    border: none;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.button_my_galaxy{
+    margin: 5px;
+    background-image: url(images/image_galaxy.jpeg);
+    background-size: cover;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px black;
+    border: none;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+
+
+.button_all_shows, .button_create_show {
+    margin: 5px;
+    background-color: #f49d80;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px black;
+    border: none;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.button_show_one {
+    margin: 5px;
+    background-color: #f8f102;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px black;
+    border: none;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.button_image_details {
+    margin: 5px;
+    background-color: #e98cc3;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px black;
+    border: none;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.button_edit_show {
+    margin: 5px;
+    background-color: #f1fea5;
+    color: black;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px black;
+    border: none;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.button_delete {
+    margin: 5px;
+    background-color:#f04c00;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px black;
+    text-decoration: none;
+}
+
+.button_user {
+    margin: 5px;
+    background-color:#66659d;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px black;
+    text-decoration: none;
+}
+
+.button_user1 {
+    margin: 5px;
+    background-color: #6dc1c5;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 5px 5px 5px black;
+    border: none;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.add_button {
+    text-align: center;
+}
+
+.button_single {
+    margin: 20px;
+    margin-top: 0px;
+}
+
+.button_create_comment {
+    margin: 25px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    box-shadow: 5px 5px 5px;
+    border-radius: 10px;
+    margin-right: 5px;        
+    background-color: #cdf7f9;
+}
+
+.button_post_comment {
+    display: flex;
+    justify-content: right;
+}
+
+
+
+
+/* ----- LINKS ----- */
+.link {
+    color: #f98058;
+    text-decoration: none;
+}
+
+.user_link {
+    color: #50eefc;
+    text-decoration: none;
+}
+
+
+
+
+/* ----- FLASH MESSAGES ----- */
+.flash_messages_cont {
+    margin-top: 5px;
+    padding: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-size: small;
+}
+
+.image_messages, .recipe_messages {
+    margin: 1px;
+    padding: 3px;
+}
+
+
+
+
+/* ----- COLUMNS ----- */
+.column1 {
+    padding: 20px;
+    border: 3px solid #5a677d;
+    background-color: #cef7f9;
+    border-radius: 15px;
+
+}
+
+.column2 {
+    padding: 20px;
+    border: 3px solid #5a677d;
+    background-color: #beffcf;
+    border-radius: 15px;
+}
+
+.cont_left_column {
+    padding: 20px;
+    padding-right: 5px;
+}
+
+.cont_right_column {
+    padding: 0px;
+    padding-left: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+
+/* ----- FORM STYLING ----- */
+.show_body_cont {
+    /* background-color: red; */
+}
+
+.show_body1 {
+    margin-left: 15px;
+    display: flex;
+}
+
+.show_body2 {
+    margin-left: 15px;
+    display: flex;
+}
+
+.show_body3 {
+    margin-left: 15px;
+    display: flex;
+}
+
+.show_body4 {
+    margin-left: 35px;
+    display: flex;
+    padding-right: 25px;
+}
+
+.show_fields_bold1 {
+    margin: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: large;
+}
+
+.show_fields_bold2 {
+    margin: 10px;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: large;
+}
+
+.show_fields_bold3 {
+    margin: 10px;
+    margin-right: 15px;
+    font-weight: bold;
+    font-size: large;
+}
+
+.show_fields {
+    margin: 2px;
+    padding: 2px;
+    display: flex;
+    align-items: center;
+}
+
+.show_fields1 {
+    margin-left: 5px;
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    background-color: #E4F9FA;
+    padding-right: 15px;
+}
+
+.create_form_field {
+    margin: 15px;
+    padding: 10px;
+    font-weight: bold;
+    background-color: #f49d80;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.create_form_field_comments {
+    margin: 15px;
+    padding: 10px;
+    display: flex;
+    font-weight: bold;
+    background-color: #f49d80;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.create_form_field_caption {
+    margin: 15px;
+    padding: 10px;
+    display: flex;
+    font-weight: bold;
+    background-color: #f49d80;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.create_form_field_text {
+    margin-right: 15px;
+}
+
+.create_form_field_input {
+    size: 250px;
+}
+
+.recipe_form_field_radio {
+    margin: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #f49d80;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px black;
+}
+
+.comments_form {
+    display: block;
+    margin: 25px;
+    margin-top: 35px;
+}
+
+
+
+
+/* ----- TABLE STYLING ----- */
+.one_recipe_table {
+    border-collapse: collapse;
+    width: 75%;
+}
+
+tr:last-child .recipe_rowcontent, tr:last-child .recipe_rowheader {
+    border-bottom: none;
+}
+
+th {
+    background-color: #cff4fc;
+}
+
+
+
+/* ----- TEXT LINES ----- */
+.text_info {
+    color: white;
+}
+
+
+
+
+
+/* ----- COMMENTS ----- */
+.comments_post {
+    display: block;
+    margin-top: 20px;
+}
+
+.post_comment_label {
+    margin-right: 50px;
+    text-align: center;
+}
+
+.post_comment_input {
+    width: 500px; 
+    min-width: 100px; 
+    padding: 10px; 
+    border: 1px solid #ccc; 
+    border-radius: 5px;
+    transition: height 0.2s;
+    overflow-y: auto;
+    background-color: #e4f9fa;
+    }
+
+.comments_all {
+
+}
+
+
+
+
+.pw_specs {
+    margin: 0 auto;
+    font-size: x-small;
+}
+
+.dashboard {
+    text-shadow: 3px 3px 4px black;
+    color: #71d5e0;
+}
+
+.all_games {
+    text-shadow: 3px 3px 4px black;
+    color: #aef3fb;
+}
+
+
+/* ----- IMAGES ----- */
+.thumbnail_left {
+    margin-right: 0px;
+    margin-top: 25px;
+    height: 250px;
+    width: 250px;
+}
+
+.thumbnail_right {
+    margin-left: 0px;
+    margin-top: 25px;
+    height: 250px;
+    width: 250px;
+}
+
+.image_thumb {
+    width: 25%;
+    height: auto;
+}
