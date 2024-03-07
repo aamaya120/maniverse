@@ -10,8 +10,11 @@
 <body class="edit_background">
 
     <div class="header">
-        <a href="/home" type="button" class="button_dashboard">Home</a>
+
+        <a href="/home" type="button" class="button_maniverse">The Mani-verse</a>
+        <a href="/user/home/{{ current_user.id }}" type="button" class="button_my_galaxy">My Galaxy</a>
         <a href="/user/logout" type="button" class="button_logout">Logout</a>
+
     </div>
     
     <div class="p-2 d-flex justify-content-center flex-column">
@@ -35,19 +38,19 @@
                     <textarea id="caption" name="caption" rows="8" cols="50">{{ image_to_edit.caption }}</textarea><br>
                 </div>
 
-                <p class="">Optional:</p>
-
                 <div class="create_form_field">
                     <label>Brand: </label>
                     <select class="brand" name="brand">
-                        <option value="opi">OPI</option>
-                        <option value="orly">Orly</option>
-                        <option value="essie">Essie</option>
-                        <option value="china_glaze">China Glaze</option>
-                        <option value="sinful_colors">Sinful Colors</option>
-                        <option value="maybelline">Maybelline</option>
-                        <option value="revlon">Revlon</option>
-                        <option value="other">Other</option>
+                        <option value="" disabled >Choose a brand</option>
+                        <option value="OPI" {% if image_to_edit.brand == 'OPI' %} selected {% endif %}>OPI</option>
+                        <option value="Orly" {% if image_to_edit.brand == 'Orly' %} selected {% endif %}>Orly</option>
+                        <option value="Essie" {% if image_to_edit.brand == 'Essie' %} selected {% endif %}>Essie</option>
+                        <option value="China Glaze" {% if image_to_edit.brand == 'China Glaze' %} selected {% endif %}>China Glaze</option>
+                        <option value="Sinful Colors"{% if image_to_edit.brand == 'Sinful Colors' %} selected {% endif %}>Sinful Colors</option>
+                        <option value="Sally Hensen"{% if image_to_edit.brand == 'Sally Hensen' %} selected {% endif %}>Sally Hensen</option>
+                        <option value="Maybelline"{% if image_to_edit.brand == 'Maybelline' %} selected {% endif %}>Maybelline</option>
+                        <option value="Revlon"{% if image_to_edit.brand == 'Revlon' %} selected {% endif %}>Revlon</option>
+                        <option value="Other"{% if image_to_edit.brand == 'Other' %} selected {% endif %}>Other</option>
                     </select>
                 </div>
 
@@ -59,14 +62,16 @@
                 <div class="create_form_field">
                     <label>Brand: </label>
                     <select class="brand2" name="brand2">
-                        <option value="opi">OPI</option>
-                        <option value="orly">Orly</option>
-                        <option value="essie">Essie</option>
-                        <option value="china_glaze">China Glaze</option>
-                        <option value="sinful_colors">Sinful Colors</option>
-                        <option value="maybelline">Maybelline</option>
-                        <option value="revlon">Revlon</option>
-                        <option value="other">Other</option>
+                        <option value="" disabled >Choose a brand</option>
+                        <option value="OPI" {% if image_to_edit.brand2 == 'OPI' %} selected {% endif %}>OPI</option>
+                        <option value="Orly" {% if image_to_edit.brand2 == 'Orly' %} selected {% endif %}>Orly</option>
+                        <option value="Essie" {% if image_to_edit.brand2 == 'Essie' %} selected {% endif %}>Essie</option>
+                        <option value="China Glaze" {% if image_to_edit.brand2 == 'China Glaze' %} selected {% endif %}>China Glaze</option>
+                        <option value="Sinful Colors"{% if image_to_edit.brand2 == 'Sinful Colors' %} selected {% endif %}>Sinful Colors</option>
+                        <option value="Sally Hensen"{% if image_to_edit.brand2 == 'Sally Hensen' %} selected {% endif %}>Sally Hensen</option>
+                        <option value="Maybelline"{% if image_to_edit.brand2 == 'Maybelline' %} selected {% endif %}>Maybelline</option>
+                        <option value="Revlon"{% if image_to_edit.brand2 == 'Revlon' %} selected {% endif %}>Revlon</option>
+                        <option value="Other"{% if image_to_edit.brand2 == 'Other' %} selected {% endif %}>Other</option>
                     </select>
                 </div>
 

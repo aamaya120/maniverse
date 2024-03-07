@@ -14,24 +14,16 @@
             <h1 class="maniverse_home">The MANI-VERSE is at your fingertips, {{ current_user.username }}!!</h1>
         </div>
         <div>
-            <a href="/images/create" type="button" class="button_create_mani">Post Your Mani</a>
+            <a href="/images/create" type="button" class="button_create_mani">Post A Mani</a>
             <a href="/user/home/{{ current_user.id }}" type="button" class="button_my_galaxy">My Galaxy</a>
             <a href="/user/logout" type="button" class="button_logout">Logout</a>
         </div>
     </div>
     
     <div>
-
-        {% for image in images %}
-            <a href="{{ url_for('static', filename='uploads/' + image)}}" target="_blank">
-                <img class="image_thumb" src="{{ url_for('static', filename='uploads/' + image)}}">
-            </a>
-        {% endfor %}
         
     </div>
 
-
-    <!-- previously recipes_cont css -->
         <div class="dashboard_cont"> 
     
             <h2 class="dashboard"><center>Most recent uploads:</center></h2>
@@ -42,8 +34,10 @@
                 <div class="image_container"> 
                     <div class="inside_image_container">
                         <a class="link" href="/images/show_one/{{ one_image.id }}">{{ one_image.image }}</a>
-                        <p class="text_info">{{ one_image.caption }}</p>
-                        <p class="text_info">{{ one_image.created_at }}</p>
+                        <div class="text_info">
+                            <p class="text_info_inside">{{ one_image.caption }}</p>
+                            <p class="text_info_inside">{{ formatted_date }}</p>
+                        </div>
                         {% if one_image.creator.id == current_user.id %}
                         <a href="/images/edit/{{ one_image.id }}" class="button_edit_show">Edit</a>
                         <a href="/images/delete/{{ one_image.id }}" class="button_delete">Delete</a>

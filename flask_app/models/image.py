@@ -42,7 +42,7 @@ class Image:
         return is_valid
 
 
-    # GET IMAGES BY USER
+    # GET ALL IMAGES BY USER
     @classmethod
     def get_all_images_by_user(cls, data):
         query = """
@@ -169,7 +169,21 @@ class Image:
         return this_image
     
 
-
-
+    # CREATE AN IMAGE / INSERT TO DB
+    @classmethod
+    def add_image(cls, data):
+        image_data = {
+            "id": id,
+            "user_id": user_id,
+            "content": content
+        }
+        query = """
+        INSERT INTO images(id, user_id, content)
+        VALUES (%(id)s, %(user_id)s, %(content)s)
+        """
+        print(query)
+        results = connect(cls.db).query_db(query, image_data)
+        print(results)
+        return results
 
 

@@ -31,12 +31,11 @@ def image_create_save():
     if Image.validate(form_data):
         form_data['user_id'] = session['user_id']
         Image.create_one(form_data)
-        return redirect('/home')
-    elif session['user_id']:
-        current_user = User.get_one(session['user_id'])
-    return render_template('image_create.html', 
-                        form_data = form_data, 
-                        current_user = current_user)
+        if session['user_id']:
+            user_id = form_data['user_id']
+            # current_user = User.get_one(session['user_id'])
+            return redirect(f'/user/home/{user_id}') 
+
 
 #EDIT IMAGE FORM
 @app.route('/images/edit/<int:image_id>')
@@ -63,8 +62,33 @@ def show_edit_save(image_id):
         # print("****  made it to line 82 ****", form_data['image_id'] )
         Image.update_one(form_data)
         # print(Image.update_one(form_data), "!!!!! made it to line 84 !!!")
-        return redirect('/home')
-    return redirect(f'/images/edit/{image_id}')
+        return redirect(f'/images/show_one/{image_id}')
+    return redirect('/home')
+
+# @app.route('/upload', methods=['POST'])
+# def upload():
+#     try:
+#         file = request.files['file']
+#         extension = os.path.splitext(file.filename)[1]
+#         print(extension)
+#         if file.filename.strip():
+#             flash("Please select a file")
+#         if file:
+
+#             if extension not in app.config['ALLOWED_EXTENSIONS']:
+#                 flash( 'File is not an image' )
+
+#             file.save(os.path.join(
+#                 app.config['UPLOAD_DIRECTORY'],
+#                 secure_filename(file.filename)))
+#     except RequestEntityTooLarge:
+#         return 'File is larger than the 16MB limit.'
+#     return redirect('/home')
+
+# @app.route('/serve-image/<filename>', methods=['GET'])
+# def serve_image(filename):
+#     return send_from_directory(app.config['UPLOAD_DIRECTORY'], filename)
+
 
 @app.route('/upload', methods=['POST'])
 def upload():
@@ -72,14 +96,18 @@ def upload():
         file = request.files['file']
         extension = os.path.splitext(file.filename)[1]
         print(extension)
+        if file.filename.strip():
+            flash("Please select a file")
         if file:
-
+            
             if extension not in app.config['ALLOWED_EXTENSIONS']:
                 flash( 'File is not an image' )
 
             file.save(os.path.join(
                 app.config['UPLOAD_DIRECTORY'],
                 secure_filename(file.filename)))
+        Image.add_image(secure_filename(file.filename), 
+                            request.form['user_id'], request.form['image_id'])    
     except RequestEntityTooLarge:
         return 'File is larger than the 16MB limit.'
     return redirect('/home')
@@ -87,7 +115,6 @@ def upload():
 @app.route('/serve-image/<filename>', methods=['GET'])
 def serve_image(filename):
     return send_from_directory(app.config['UPLOAD_DIRECTORY'], filename)
-
 
 
 
@@ -104,13 +131,21 @@ def image_delete(image_id):
         return redirect('/home')
     return redirect('/')
 
-#SHOW ONE SHOW
+#SHOW ONE IMAGE
 @app.route('/images/show_one/<int:image_id>')
 def show_one(image_id):
     one_image = Image.get_one(image_id)
+    one_comment = Comment.get_one_comment_by_creator_id({'image_id':image_id})
+    this_image_comments = Comment.get_all_comments_by_image_id({"image_id": image_id})
+    # for one_date in one_comment:
+    #     formatted_date = one_date.created_at.strftime("%b %d, %Y")
+    print(this_image_comments,'%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%')
     print(one_image)
     if session['user_id']:
         current_user = User.get_one(session['user_id'])
     return render_template('image_show_one.html', one_image = one_image, 
-                        current_user = current_user, 
-                        this_image_posts = Comment.get_all_posts_by_image_id({"image_id": image_id}))
+                    current_user = current_user,
+                    one_comment = one_comment,
+                    this_image_comments = this_image_comments)
+                    # formatted_date = formatted_date)
+                    

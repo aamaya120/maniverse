@@ -10,18 +10,15 @@
 <body class="main_background">
 
     <div class="header">
-
-            <a href="/images/create" type="button" class="button_create_mani">Post Your Mani</a>
-            <a href="/home" type="button" class="button_show_one">Home</a>
-            <a href="/user/logout" type="button" class="button_logout">Logout</a>
-
+        <a href="/home" type="button" class="button_maniverse">The Mani-verse</a>
+        <a href="/user/home/{{ current_user.id }}" type="button" class="button_my_galaxy">My Galaxy</a>
+        <a href="/user/logout" type="button" class="button_logout">Logout</a>
     </div>
     
-    <!-- previously recipes_cont css -->
         <div class="dashboard_cont"> 
-    
-            <h1 class="dashboard"><center>UserName's Galaxy:</center></h1>
-    
+            
+            <h1 class="dashboard"><center>{{ this_user.username }}'s Galaxy:</center></h1>
+
             <div class="image_container1">
 
                 {% for one_image in all_images %}
@@ -29,7 +26,10 @@
                     <div class="inside_image_container">
                         <a class="link" href="/images/show_one/{{ one_image.id }}">{{ one_image.image }}</a>
                         <p>{{ one_image.caption }}</p>
-                        <p>{{ one_image.created_at }}</p>
+                        <div class="text_info">
+                            <p class="text_info_inside">{{ one_image.caption }}</p>
+                            <p class="text_info_inside">{{ formatted_date }}</p>
+                        </div>
                         {% if one_image.creator.id == current_user.id %}
                         <a href="/images/edit/{{ one_image.id }}" class="button_edit_show">Edit</a>
                         <a href="/images/delete/{{ one_image.id }}" class="button_delete">Delete</a>

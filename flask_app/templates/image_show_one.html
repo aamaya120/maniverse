@@ -11,8 +11,9 @@
     
     <div class="container_image">
         
-        <div class="header_only_links">
+        <div class="header">
             <a href="/home" type="button" class="button_maniverse">The Mani-verse</a>
+            <a href="/user/home/{{ current_user.id }}" type="button" class="button_my_galaxy">My Galaxy</a>
             <a href="/user/logout" type="button" class="button_logout">Logout</a>
         </div>
 
@@ -20,11 +21,11 @@
             <div class="inside_container">
                 
                 <div>
-                    <h1 class="show_h2">{{ one_image.image }}</h1>
+                    <h1 class="image_h2">{{ one_image.image }}</h1>
                 </div>
                 <div>
-                    <h5 class="show_h2">Posted By: 
-                        <a class="user_link" href="/users/show_all_images/{{one_image.creator.id}}">{{ one_image.creator.username }}</a>
+                    <h5 class="image_h2">Posted By: 
+                        <a class="user_link" href="/users/show_all_images/{{one_image.creator.id}}"> {{ one_image.creator.username }} </a>
                     </h5>
                 </div>
 
@@ -70,8 +71,8 @@
         <div class="comments_post">
             <form class="comments_form" action="/image/comment/create/{{one_image.id}}" method='POST'>
 
-                <label class="post_comment_label" for='content'>Post a Comment:</label>
-                <input class="post_comment_input" type="text" name="content">
+                <label class="comment_label" for='content'>Post a Comment:</label>
+                <input class="comment_input" type="text" name="content">
                 
                 <div class="button_post_comment">
                     <input class="button_create_comment" type="submit" value="Post">
@@ -86,17 +87,27 @@
                     <p>{{ message }}</p>
                 {% endfor %}
             {% endif %}
-        {% endwith %}
+            {% endwith %}
         </div>
 
 
-        <!-- for loop goes here -->
-        {% for comment in this_image_comments %}
-        <div class="comments_all">
-            <h4>Comment at {{ comment.created_at }} on {{ comment.created_at }} </h4>
-            <p>Post Content: {{ comment.content }} </p>
+        <!-- <div class="comments_all"> -->
+            <div class="table_cont">
+                <div class="inside_container">
+
+            <h2 class="image_h2"><center>All Comments</center></h2>
+        {% for comment in one_comment %}
+        <div class="comment_field">
+            <p class="comment_content" >{{ comment.content }}</p>
+            <p class="comment_by">Comment by<a class="comment_user_link"
+                href="/users/show_all_images/{{ comment.image_id }}"> {{ comment.user.username }} </a> on {{ comment['created_at'].strftime('%b, %d, %Y') }} </p>
         </div>
         {% endfor %}
+        </div>
+            </div>
+            <!-- </div> -->
+
+
 
     </div>
 

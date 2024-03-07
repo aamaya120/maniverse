@@ -3,6 +3,7 @@ from flask import render_template, redirect, session, request, flash
 from flask_app.models.user import User
 from flask_app.models.image import Image
 from flask_bcrypt import Bcrypt
+from datetime import datetime
 import os
 bcrypt = Bcrypt(app)
 
@@ -22,21 +23,25 @@ bcrypt = Bcrypt(app)
 #DASHBOARD / HOME PAGE
 @app.route('/home')
 def dashboard():
-    if session['user_id']:
+    if session.get('user_id'):
         current_user = User.get_one(session['user_id'])
         all_images= Image.get_all_images_by_all_users()
+        for one_image in all_images:
+            formatted_date = one_image.created_at.strftime("%b %d, %Y")
+        # print(formatted_date)
         files = os.listdir(app.config['UPLOAD_DIRECTORY'])
         images = []
         for file in files:
             extension = os.path.splitext(file)[1].lower()
             if extension in app.config['ALLOWED_EXTENSIONS']:
                 images.append(file)
-                print(images)
+                # print(images)
     
         return render_template('dashboard.html', 
                 all_images = all_images,
                 current_user = current_user,
-                images = images)
+                images = images,
+                formatted_date = formatted_date)
     else:
         flash("You need to be signed in to view page")           
         return redirect('/')
@@ -61,23 +66,38 @@ def show_all_images(user_id):
     if session['user_id']:
         current_user = User.get_one(session['user_id'])
         all_images= Image.get_all_images_by_user({'user_id':user_id})
-        # image_creator = User.get_all_images_join_user(user_id)
+        this_user = User.get_one_join_images({'user_id':user_id})
+        for one_image in all_images:
+            formatted_date = one_image.created_at.strftime("%b %d, %Y")
         return render_template('user_show_all_images.html', 
                 all_images = all_images, 
-                current_user = current_user)
-                # image_creator = image_creator)
+                current_user = current_user,
+                this_user = this_user,
+                formatted_date = formatted_date)
 
 
 #SHOW ALL IMAGES OF CURRENT USER / USER HOME
+# @app.route('/user/home/<int:user_id>')
+# def user_home(user_id):
+#     if session['user_id']:
+#         current_user = User.get_one(session['user_id'])
+#         this_user = Image.get_all_images_by_user({'user_id':user_id})
+#     return render_template('user_mypage.html', 
+#                         current_user = current_user,
+#                         this_user = this_user)
+
+# SHOW ALL IMAGES OF CURRENT USER / USER HOME
 @app.route('/user/home/<int:user_id>')
 def user_home(user_id):
     if session['user_id']:
         current_user = User.get_one(session['user_id'])
-        this_user = Image.get_all_images_by_user({'user_id':user_id})
+        all_images = Image.get_all_images_by_user({'user_id':user_id})
+        for one_image in all_images:
+            formatted_date = one_image.created_at.strftime("%b %d, %Y")
     return render_template('user_mypage.html', 
                         current_user = current_user,
-                        this_user = this_user)
-
+                        all_images = all_images,
+                        formatted_date = formatted_date)
 
 
 

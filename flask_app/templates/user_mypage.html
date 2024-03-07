@@ -10,38 +10,29 @@
 <body class="my_home_background">
 
     <div class="header">
-        <div>
-            <h1 class="maniverse_home">Your Galaxy in the MANI-VERSE, {{ current_user.username }}...</h1>
-        </div>
-        <div>
-            <a href="/images/create" type="button" class="button_create_mani">Post Your Mani</a>
+            <a href="/images/create" type="button" class="button_create_mani">Post A Mani</a>
             <a href="/home" type="button" class="button_maniverse">The Mani-verse</a>
             <a href="/user/logout" type="button" class="button_logout">Logout</a>
-        </div>
     </div>
     
+    <div>
+        <h1 class="maniverse_home">Your Galaxy in the MANI-VERSE, {{ current_user.username }}...</h1>
+    </div>
+
     <div>
 
         <div class="dashboard_cont"> 
     
-            <h2 class="dashboard"><center>Most recent uploads:</center></h2>
-    
             <div class="image_container1">
-
-                {% for image in images %}
-                <a href="{{ url_for('serve_image', filename=image)}}">
-                    <img src="/serve_image/{{ image }}"/>
-                </a>
-                {% endfor %}
-            
-            </div>
 
                 {% for one_image in all_images %}
                 <div class="image_container"> 
                     <div class="inside_image_container">
                         <a class="link" href="/images/show_one/{{ one_image.id }}">{{ one_image.image }}</a>
-                        <p class="text_info">{{ one_image.caption }}</p>
-                        <p class="text_info">{{ one_image.created_at }}</p>
+                        <div class="text_info">
+                            <p class="text_info_inside">{{ one_image.caption }}</p>
+                            <p class="text_info_inside">{{ formatted_date }}</p>
+                        </div>
                         {% if one_image.creator.id == current_user.id %}
                         <a href="/images/edit/{{ one_image.id }}" class="button_edit_show">Edit</a>
                         <a href="/images/delete/{{ one_image.id }}" class="button_delete">Delete</a>
@@ -55,6 +46,7 @@
             </div>
 
         </div>
+
 
 </body>
 </html>

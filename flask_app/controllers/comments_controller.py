@@ -7,6 +7,20 @@ from datetime import datetime
 
 
 
+# @app.route('/image/comment/create/<int:image_id>', methods=['POST'])        
+# def comment_create(image_id):
+#     print(request.form)
+#     if session['user_id']:
+#         current_user = User.get_one(session['user_id'])
+#         if Comment.validate(request.form):
+#             data = request.form.to_dict()
+#             data['creator_id'] = session['user_id']
+#             data['image_id'] = image_id
+#             Comment.create_one(data)
+#     return redirect(f"""/images/show_one/{image_id}""", 
+#                         current_user = current_user)
+
+
 @app.route('/image/comment/create/<int:image_id>', methods=['POST'])        
 def comment_create(image_id):
     print(request.form)
@@ -14,10 +28,7 @@ def comment_create(image_id):
         current_user = User.get_one(session['user_id'])
         if Comment.validate(request.form):
             data = request.form.to_dict()
-            data['user_id'] = session['user_id']
+            data['creator_id'] = session['user_id']
             data['image_id'] = image_id
             Comment.create_one(data)
-        return redirect(f"""/images/show_one/{image_id}""", 
-                        current_user = current_user)
-
-
+    return redirect(f"""/images/show_one/{image_id}""")

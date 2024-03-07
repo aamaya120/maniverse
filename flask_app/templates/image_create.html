@@ -10,13 +10,11 @@
 <body class="create_background">
 
     <div class="header">
-        <div>
-            <h2></h2>
-        </div>
-        <div>
-            <a href="/home" type="button" class="button_dashboard">Home Page</a>
+
+            <a href="/home" type="button" class="button_maniverse">The Mani-verse</a>
+            <a href="/user/home/{{ current_user.id }}" type="button" class="button_my_galaxy">My Galaxy</a>
             <a href="/user/logout" type="button" class="button_logout">Logout</a>
-        </div>
+
     </div>
     
     <div class="p-1 d-flex justify-content-center flex-column">
@@ -52,21 +50,19 @@
                     <textarea id="caption" name="caption" rows="8" cols="50">{{ form_data.caption }}</textarea><br>
                 </div>
 
-                <p class="">Optional:</p>
-
                 <div class="create_form_field">
                     <label>Brand: </label>
                     <select class="brand" name="brand">
                         <option value="" disabled selected>Choose a brand</option>
-                        <option value="opi">OPI</option>
-                        <option value="orly">Orly</option>
-                        <option value="essie">Essie</option>
-                        <option value="china_glaze">China Glaze</option>
-                        <option value="sinful_colors">Sinful Colors</option>
-                        <option value="sally_hensen">Sally Hensen</option>
-                        <option value="maybelline">Maybelline</option>
-                        <option value="revlon">Revlon</option>
-                        <option value="other">Other</option>
+                        <option value="OPI">OPI</option>
+                        <option value="Orly">Orly</option>
+                        <option value="Essie">Essie</option>
+                        <option value="China Glaze">China Glaze</option>
+                        <option value="Sinful Colors">Sinful Colors</option>
+                        <option value="Sally Hensen">Sally Hensen</option>
+                        <option value="Maybelline">Maybelline</option>
+                        <option value="Revlon">Revlon</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
 
@@ -79,15 +75,15 @@
                     <label>Brand: </label>
                     <select class="brand2" name="brand2">
                         <option value="" disabled selected>Choose a brand</option>
-                        <option value="opi">OPI</option>
-                        <option value="orly">Orly</option>
-                        <option value="essie">Essie</option>
-                        <option value="china_glaze">China Glaze</option>
-                        <option value="sinful_colors">Sinful Colors</option>
-                        <option value="sally_hensen">Sally Hensen</option>
-                        <option value="maybelline">Maybelline</option>
-                        <option value="revlon">Revlon</option>
-                        <option value="other">Other</option>
+                        <option value="OPI">OPI</option>
+                        <option value="Orly">Orly</option>
+                        <option value="Essie">Essie</option>
+                        <option value="China Glaze">China Glaze</option>
+                        <option value="Sinful Colors">Sinful Colors</option>
+                        <option value="Sally Hensen">Sally Hensen</option>
+                        <option value="Maybelline">Maybelline</option>
+                        <option value="Revlon">Revlon</option>
+                        <option value="Other">Other</option>
                     </select>
                 </div>
 

@@ -68,6 +68,7 @@ container {
 .inside_container {
     width: 100%;
     background-color: #cdf7f9;
+    padding-top: 20px;
 }
 
 .games_cont {
@@ -221,7 +222,7 @@ h1 {
     font-family: fantasy;
 }
 
-.show_h2 {
+.image_h2 {
     text-shadow: 3px 3px 4px black;
     color: #cdf7f9;
     text-align: center;
@@ -635,6 +636,12 @@ th {
 /* ----- TEXT LINES ----- */
 .text_info {
     color: white;
+    margin: 15px;
+    margin-bottom: 30px;
+}
+
+.text_info_inside {
+    margin: 0 auto;
 }
 
 
@@ -644,15 +651,17 @@ th {
 /* ----- COMMENTS ----- */
 .comments_post {
     display: block;
-    margin-top: 20px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-.post_comment_label {
+.comment_label {
     margin-right: 50px;
     text-align: center;
+    font-weight: bold;
 }
 
-.post_comment_input {
+.comment_input {
     width: 500px; 
     min-width: 100px; 
     padding: 10px; 
@@ -664,7 +673,30 @@ th {
     }
 
 .comments_all {
+    background-color: blue;
+    margin-bottom: 40px;
+}
 
+.comment_field {
+    margin: 20px;
+    margin-bottom: 25px;
+}
+
+.comment_content {
+    padding: 10px;
+    margin: 0 auto;
+    border: 2px solid #ccc;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.comment_by {
+    padding-left: 10px;
+}
+
+.comment_user_link {
+    color: #379ea8;
+    text-decoration: none;
 }
 
 
@@ -704,4 +736,12 @@ th {
 .image_thumb {
     width: 25%;
     height: auto;
+}
+
+
+
+
+/* ----- USER INFO ----- */
+.user_details {
+    margin: 25px;
 }

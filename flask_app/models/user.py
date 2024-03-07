@@ -141,7 +141,7 @@ class User:
         return all_users
     
 
-    #SHOW ONE JOIN IMAGE
+    #SHOW ONE USER JOIN IMAGES
     @classmethod
     def get_one_join_images(cls, data):
         query = """
@@ -155,55 +155,20 @@ class User:
         print(results)
         this_user = cls(results[0])
         print(this_user)
-        for image in results:
+        for image_dict in results:
             image_data = {
-            "id": image['images.id'],
-            "image": image['image'],
-            "caption": image['caption'],
-            "user_id": image['user_id'],
-            "brand": image['brand'],
-            "brand2": image['brand2'],
-            "color": image['color'],
-            "color2": image['color2'],
-            "created_at": image['images.created_at'],
-            "updated_at": image['images.updated_at'],
+                "id": image_dict['images.id'],
+                "image": image_dict['image'],
+                "caption": image_dict['caption'],
+                "user_id": image_dict['user_id'],
+                "brand": image_dict['brand'],
+                "brand2": image_dict['brand2'],
+                "color": image_dict['color'],
+                "color2": image_dict['color2'],
+                "created_at": image_dict['images.created_at'],
+                "updated_at": image_dict['images.updated_at'],
             }
             this_image = image.Image(image_data)
             print(this_image, "----*************---------this_image----------")
             this_user.all_images.append(this_image)
         return this_user
-
-    # #SHOW ALL IMAGES JOIN USER
-    # @classmethod
-    # def get_all_images_join_user(cls, data):
-    #     query = """
-    #         SELECT *
-    #         FROM images
-    #         JOIN users
-    #         ON users.id = images.user_id
-    #         WHERE users.id = %(user_id)s
-    #         """
-    #     results = connect(cls.db).query_db(query, data)
-    #     this_image = image.Image(results[0])
-    #     print(this_image)
-    #     for user_dict in results:
-    #         user_data = {
-    #             self.id = data['id']
-    #         self.first_name = data['first_name']
-    #         self.last_name = data['last_name']
-    #         self.username = data['username']
-    #         self.email = data['email']
-    #         self.password = data['password']
-    #         self.created_at = data['created_at']
-    #         self.updated_at = data['updated_at']
-    #         "id": image_dict['images.id'],
-    #         "image": image_dict['image'],
-    #         "caption": image_dict['caption'],
-    #         "user_id": image_dict['user_id'],
-    #         "created_at": image_dict['images.created_at'],
-    #         "updated_at": image_dict['images.updated_at'],
-    #         }
-    #         this_image = image.Image(image_data)
-    #         print(this_image)
-    #         this_user.all_images.append(this_image)
-    #     return this_user
